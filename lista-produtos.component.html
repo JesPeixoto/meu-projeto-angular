@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Produtos</title>
+</head>
+<body>
+  <div>
+    <h2>Lista de Produtos</h2>
+    <input type="text" [(ngModel)]="termoBusca" placeholder="Buscar produto..." (input)="buscar()">
+    <button (click)="limparBusca()">Limpar</button>
+    <ul>
+      <li *ngFor="let produto of produtos; let i = index">
+        {{ produto.nome }} - {{ produto.descricao }} - R$ {{ produto.preco }}
+        <button (click)="editarProduto(i)">Editar</button>
+        <button (click)="removerProduto(i)">Remover</button>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
